@@ -1,0 +1,69 @@
+
+            <div class="container">
+              <h5>Registra tua Ocorrência</h5>
+              <div [hidden]="submitted">
+                  <form #ocorrenciaForm="ngForm" (ngSubmit)="onSubmit()">
+                      <div class="form-group">
+                          <label for="Tipo">Selecione Tipo</label>
+                          <select class="form-control" id="Tipo" required [(ngModel)]="ocorrencia.Tipo" name="Tipo">
+                            <option>Nao Conformidade</option>
+                            <option>Outro</option>
+                            <option>Outro de novo</option>
+                          </select>
+                        </div>
+                       
+                    <div class="form-group">
+                      <label for="Ocorrencia">Ocorrencia</label>
+                      <input type="text" class="form-control" id="Ocorrencia" required
+                      [(ngModel)]="ocorrencia.Ocorrencia" name="Ocorrencia">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="Descricao">Descrição</label>
+                      <textarea class="form-control" id="Descricao" required [(ngModel)]="ocorrencia.Descricao" name="Descricao" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="DataOcorrencia">Data de Ocorrência</label>
+                      <input type="date" class="form-control" id="DataOcorrencia" 
+                     required [(ngModel)]="ocorrencia.DataOcorrencia" name="DataOcorrencia" >
+                    </div>
+                    <div class="form-group">
+                      <label>Selecione Unidade</label>
+                        <select [formControl]="unidadeform.controls['UnidadeId']" id="UnidadeId" required [(ngModel)]="ocorrencia.UnidadeId" name="UnidadeId">
+                          <option value="0">--Select--</option>
+                          <option *ngFor="let unida of unidade" value = {{unida.UnidadeId}}>
+                            {{unida.NomeUnidade}}
+                          </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="Origem">Origem</label>
+                      <input type="text" class="form-control" id="Origem" required
+                      [(ngModel)]="ocorrencia.Origem" name="Origem">
+                    </div>
+              
+                      <div class="form-group">
+                          <label for="AcaoImediata">imidiate action </label>
+                          <input type="text" class="form-control" id="AcaoImediata" 
+                         required [(ngModel)]="ocorrencia.AcaoImediata" name="AcaoImediata" >
+                        </div>
+              
+                        <div class="form-group">
+                          <label>Selecione Terceiro</label>
+                            <select [formControl]="terceiroform.controls['TerceiroId']" id="TerceiroId" required [(ngModel)]="ocorrencia.TerceiroId" name="TerceiroId">
+                              <option value="0">--Select--</option>
+                              <option *ngFor="let terc of terceiro" value = {{terc.TerceiroId}}>
+                                {{terc.NomeTerceiro}}
+                              </option>
+                            </select>
+                        </div>
+                      
+                      <button type="submit" class="btn btn-outline-primary" [disabled]="ocorrenciaForm.invalid" >Submit</button>
+                    
+                  </form> 
+              </div>
+               
+          
+          </div>
+          

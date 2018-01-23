@@ -1,0 +1,49 @@
+<div class="container">
+  <h5> Create Terceiro</h5>
+  <div [hidden]="submitted">
+      <form  (ngSubmit)="onSubmit()">
+        
+          <div class="form-group">
+              <label for="NomeTereiro">Nome Terceiro</label>
+              <input type="text" class="form-control" id="NomeTerceiro" required
+              [(ngModel)]="terceiro.NomeTerceiro" name="NomeTerceiro">
+            </div>
+            <div class="form-group">
+              <label for="Tipo">Selecione Tipo</label>
+              <select class="form-control" id="Tipo" required [(ngModel)]="terceiro.Tipo" name="Tipo">
+                <option>Admin</option>
+                <option>Pessoa Física</option>
+                <option>Pessoa Jurídica</option>
+                <option>Exterior</option>
+              </select>
+            </div>
+
+       
+        <div class="form-group">
+          <label for="Classificacao">Classificação</label>
+          <input type="text" class="form-control" id="Classificacao" required
+          [(ngModel)]="terceiro.Classificacao" name="Classificacao">
+        </div>
+
+       
+       
+        
+     
+        <div class="btn-group" >
+          <button class="btn btn-primary" (click)="goBack()">Back</button>
+          <button type="submit" class="btn btn-success" >Submit</button>
+        </div>
+      </form>
+  </div>
+   
+
+</div>
+
+<div [hidden]="!submitted">
+<div class="btn-group ">
+    <h5>Ocorrência registrada com sucesso!</h5>
+  
+  </div>
+</div>
+
+

@@ -1,0 +1,37 @@
+<div class="container">
+    <h5> Create Unidade</h5>
+    <div [hidden]="submitted">
+        <form  (ngSubmit)="onSubmit()">
+          
+            <div class="form-group">
+                <label for="NomeUnidade">Nome Unidade</label>
+                <input type="text" class="form-control" id="NomeTerceiro" required
+                [(ngModel)]="unidade.NomeUnidade" name="NomeUnidade">
+              </div>
+
+              <div class="form-group">
+                  <label for="Responsavel">Nome Responsavel</label>
+                  <input type="text" class="form-control" id="Responsavel" required
+                  [(ngModel)]="unidade.Responsavel" name="Responsavel">
+                </div>
+              
+         
+          <div class="btn-group" >
+            <button class="btn btn-primary" (click)="goBack()">Back</button>
+            <button type="submit" class="btn btn-success" >Submit</button>
+          </div>
+        </form>
+    </div>
+     
+  
+  </div>
+  
+  <div [hidden]="!submitted">
+  <div class="btn-group ">
+      <h5>Unidade registrada com sucesso!</h5>
+    
+    </div>
+  </div>
+  
+  
+  
